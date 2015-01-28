@@ -63,13 +63,7 @@ var url = function(){
 };
 // url();
 
-
 // Title-case a string (split into words, then uppercase the first letter of each word)
-/*
- This problem involves sending a string into the function, changing the first letter
- of each word to uppercase while making sure the rest of the word is lowercase,
- and then returning the string from the function so it can be output.
- */
 var titleCasing = function(){
     var string1 = prompt("Please input text.");
     var array1 = string1.split(" ");
@@ -83,14 +77,6 @@ var titleCasing = function(){
 // titleCasing();
 
 // Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
-
-/*
- This function will require two parameters. The first is the number you wish to
- change, and the second is the number of decimal places you wish to use to
- format the number. For example, to format pi to three decimal places, you might
- send the following argument parameters: (3.14159, 3). The function will then
- return 3.142.
- */
 var roundingUp = function(myPrompt, myPrompt1){
   //var myPrompt = prompt("Please input the number you wish to round.");
     //var myPrompt1 = prompt("Please input the number of decimal places you want to round to.");
@@ -115,13 +101,6 @@ roundingUp(myPrompt, myPrompt1);
 
 // Given a string version of a number such as "42",
 // return the value as an actual Number, such as 42.
-/*
- As you have learned, there is a difference between a number as a string data
- type and a number as a Number data type. For this task, you will simply need to
- send a string into the function and return it as a Number. If you want to get
- creative, you also can add a conditional to determine if the string sent into the
- function is a number before you do the conversion.
- */
 var notANumber = function(){
     var myPrompt = prompt("Please input a number.");
     parseInt(myPrompt);
@@ -142,14 +121,29 @@ var notANumber = function(){
 
 // Find the total value of just the numbers in an array, even if some of the
 // items are not numbers.
-/*
- This one can be tricky if your array includes a string that is a number. You will
- send an array into the function and have it add together the numbers in the array.
- For example, if you send the array [1, “pickles”, 3, “onions”, 5, “10”, 6, “SDI”], the
- function should return 15. Therefore, it should be able to recognize “10” as a
- string and ignore it from the total.
- */
 var addTheArray = function(){
-
+    var string1 = prompt("Input items you want to be in the array separated by a comma ");
+    var anArray = string1.split(",");
+    var theFinalNumber = 0;
+    for(var i = 0; i < anArray.length; i++){
+        anArray[i] = parseInt(anArray[i]);
+        if(isNaN(anArray[i]) === true){
+            anArray[i] = 0;
+            theFinalNumber = theFinalNumber + anArray[i]
+        }
+        else{
+            theFinalNumber = theFinalNumber + anArray[i]
+        }
+    }
+alert(theFinalNumber);
+    return theFinalNumber
 };
-addTheArray();
+//addTheArray();
+
+/*
+I used prompts so you can input information easily to test functionality
+ of each function. On round up I passed in variables created outside the function
+ to show I can. They still require input by you but I know how to set the variable to be a return from another function.
+ Instructions seemed vague so I hope this is what they were asking for.
+ I'm sure you know to test the functions all you have to do is remove the comments on them.
+ */
