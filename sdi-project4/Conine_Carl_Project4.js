@@ -92,7 +92,19 @@ var url = function(){
  creative, you also can add a conditional to determine if the string sent into the
  function is a number before you do the conversion.
  */
+var notANumber = function(){
+    var myPrompt = prompt("Please input a number.");
+    parseInt(myPrompt);
+    if (isNaN(myPrompt) === true){
+        nope();}
+        else if (isNaN(myPrompt)=== false){
+            alert(myPrompt)
 
+        }
+
+
+};
+notANumber();
 // Find the total value of just the numbers in an array, even if some of the
 // items are not numbers.
 /*
