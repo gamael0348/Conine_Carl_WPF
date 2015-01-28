@@ -1,14 +1,35 @@
 // Does a string follow a 123-456-7890 pattern like a phone number?
-
+var notAPhoneNumber = function(){
+  alert("Not a phone number!")
+};
 var phoneNumber = function (){
-  var myPrompt = prompt ("Please input a number to see if it is in valid phone number pattern", "Input a number.")
+  var myPrompt = prompt ("Please input a number to see if it is in valid phone number pattern", "Input a number.");
     var first = myPrompt.indexOf("-");
-    // first outputs 3
-    if (first === -1){
-        alert ("This is not in a phone number format.")
+    if (myPrompt.length >= 13 || myPrompt.length < 13) {
+        notAPhoneNumber()
+    }
+    else if (first === -1){
+        notAPhoneNumber()
     }
     else if (first === 3){
-
+        var second = myPrompt.lastIndexOf("-");
+        if (second != 7){
+            notAPhoneNumber()
+        }
+        else if (second === 7){
+            var firstSet = myPrompt.substring(0, 3);
+            var secondSet = myPrompt.substring(4, 7);
+            var thirdSet = myPrompt.substring(8, 12);
+            var wholeSet = firstSet + secondSet + thirdSet;
+            parseInt(wholeSet);
+            if (wholeSet <= 9999999999) {
+                alert("You have a phone number which is " + wholeSet);
+                alert("Here it is with the dashes " + myPrompt);
+            }
+            else {
+                notAPhoneNumber()
+            }
+        }
     }
 
 };
